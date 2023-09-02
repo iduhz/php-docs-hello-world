@@ -2,13 +2,15 @@
 
 echo "Hello World!";
 
-$url = 'https://easysignaturefunctionapp.azurewebsites.net/api/HelloWorld2';
+try {
+    $guzzle = new \GuzzleHttp\Client();
+    $url = 'https://login.microsoftonline.com/2685ce0d-979a-47d6-839d-a4b8a792138c/oauth2/v2.0/token';
+    $token = json_decode($guzzle->post($url, [
+    'form_params' => [
+        'grant_type'    => 'password',
+        'client_id'     => 'f2924b54-9525-4521-ae9f-a85652060e6f'
+    ],
+])->getBody()->getContents());
 
 
-
-$ch = curl_init($url);                                                                      
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                        
-
-$server_output = curl_exec ($ch);
-
-echo  $server_output;
+  echo $token

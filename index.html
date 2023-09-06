@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The select element</h1>
+
+<p>The select element is used to create a drop-down list.</p>
+
+<form action="/action_page.php">
+  <label for="users">Choose a users:</label>
+  <select name="users" id="users">
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>Click the "Submit" button and the form-data will be sent to a page on the 
+server called "action_page.php".</p>
+
+</body>
+</html>
+
+<script>
+function myFunction() {
+	var x = document.getElementById("users");
+	const fruits = ["apple", "orange", "cherry"];
+	fruits.forEach(myFunction);
+	
+}
+
+function addOption(optionName) {
+	var option = document.createElement("option");
+ 	option.text = optionName;
+  	x.add(option);
+}
+
+</script>
